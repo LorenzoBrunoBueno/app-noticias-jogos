@@ -16,6 +16,13 @@ export default function RegisterScreen({navigation}){
       repetirSenha: false,
     });
 
+  const [visible, setVisible] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+ 
+  const showModal = () => setVisible(true);
+  const hideModal = () => setVisible(false);
+ 
+
     function realizaRegistro(){
       console.log("Fazer Registro");
     if (email === "") {
@@ -41,6 +48,8 @@ export default function RegisterScreen({navigation}){
     }
     setErro({ ...erro, senha: false, repetirSenha: false });
 
+
+    navigation.navigate("Login");
     cadastrarNoFirebase();
     
       
@@ -62,13 +71,13 @@ export default function RegisterScreen({navigation}){
           }
         );
 
-        navigation.navigate("LoginScreen");
+        navigation.navigate("Login");
       }catch(error){
         if (error.code === "auth/email-already-in-use") {
-          //setErrorMessage("Email já está cadastrado.");
+          setErrorMessage("Email já está cadastrado.");
 
         }else{
-          //setErrorMessage("Error ao cadstrar usuário"+error.message);
+          setErrorMessage("Error ao cadstrar usuário"+error.message);
         }
         showModal();
       }
@@ -104,7 +113,7 @@ export default function RegisterScreen({navigation}){
         <Button onPress={realizaRegistro} mode="outlined">
           Registrar
         </Button>
-        <Button onPress={() => navigation.navigate("LoginScreen")}>
+        <Button onPress={() => navigation.navigate("Login")}>
           Voltar ao login
         </Button>
       </View>

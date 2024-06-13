@@ -11,9 +11,8 @@ export default function AppNavigator() {
     return ( 
     <NavigationContainer> 
         <Stack.Navigator> 
-        <Stack.Screen name="Login" component={LoginScreen} /> 
         <Stack.Screen name="Registrar" component={RegisterScreen} /> 
-           
+        <Stack.Screen name="Login" component={LoginScreen} /> 
             <Stack.Screen name="News" component={NewsScreen} /> 
            
             </Stack.Navigator> 
