@@ -7,7 +7,7 @@ export default function NewsScreen() {
     const [news, setNews] = useState([]);
 
     useEffect(() => {
-        fetch('https://newsapi.org/v2/everything?q=business&apiKey=2a7edd4c76da4d3593cccdd8ac945669') 
+        fetch('https://newsapi.org/v2/everything?q=VideoGames&apiKey=2a7edd4c76da4d3593cccdd8ac945669') 
         .then(response => response.json()) 
         .then(data => setNews(data.articles)) 
         .catch(error => console.error(error)); 
