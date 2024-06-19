@@ -43,4 +43,8 @@ export const styles =  StyleSheet.create({
     scroll:{
         marginHorizontal: 20,
     },
+    paragraph: {
+        fontSize: 18,
+        textAlign: 'center',
+    },
 });
